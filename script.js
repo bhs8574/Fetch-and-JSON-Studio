@@ -3,6 +3,8 @@ window.addEventListener("load", function() {
         response.json().then( function(json) {
             console.log(json);
             const div = document.getElementById('container');
+            div.innerHTML += `<p>Current Atronaut Count: ${json.length}</p>`;
+            
             for (let i = 0; i < json.length; i++) {
                 div.innerHTML += `
                     <div class = "astronaut">
@@ -10,8 +12,8 @@ window.addEventListener("load", function() {
                             <h3>${json[i].firstName} ${json[i].lastName}</h3>
                             <ul>
                                 <li>Hours in space: ${json[i].hoursInSpace}</li>
-                                <li>Active: ${json[i].active}</li>
-                                <li>Skills: ${json[i].skills}</li>
+                                <li ${ifActive(json[i].active)}>Active: ${json[i].active}</li>
+                                <li color="black">Skills: ${json[i].skills}</li>
                             </ul>
                         </div>
                         <img class="avatar" src="${json[i].picture}">
@@ -20,3 +22,15 @@ window.addEventListener("load", function() {
         })  
     });
 });
+
+function ifActive(value) {
+    if (value) {
+        return 'style="color:green;"';
+    } else {
+        return 'style="color:black;"';
+    }
+}
+/*
+function sortSpacePeople(spaceArray) {
+    let 
+} */
