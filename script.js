@@ -3,8 +3,7 @@ window.addEventListener("load", function() {
         response.json().then( function(json) {
             console.log(json);
             const div = document.getElementById('container');
-            div.innerHTML += `<p>Current Atronaut Count: ${json.length}</p>`;
-            
+            div.innerHTML += `<p>Current Astronaut Count: ${json.length}</p>`;
             for (let i = 0; i < json.length; i++) {
                 div.innerHTML += `
                     <div class = "astronaut">
@@ -30,7 +29,3 @@ function ifActive(value) {
         return 'style="color:black;"';
     }
 }
-/*
-function sortSpacePeople(spaceArray) {
-    let 
-} */
