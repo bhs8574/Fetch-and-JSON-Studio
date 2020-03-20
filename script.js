@@ -4,6 +4,7 @@ window.addEventListener("load", function() {
             console.log(json);
             const div = document.getElementById('container');
             div.innerHTML += `<p>Current Astronaut Count: ${json.length}</p>`;
+            json.sort(function(a,b){return b.hoursInSpace - a.hoursInSpace});
             for (let i = 0; i < json.length; i++) {
                 div.innerHTML += `
                     <div class = "astronaut">
